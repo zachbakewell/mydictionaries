@@ -14,7 +14,7 @@ print(second_child)
 
 
 # print out the name of the cat
-cat = person["pets"]['cat']
+cat = person["pets"]["cat"]
 print(cat)
 
 
@@ -25,5 +25,5 @@ for child in person["children"]:
 
 # print out the pets in this format:
 # type of pet: dog name of pet: Fido
-for pet,name in person["pets"].items:
-    print(f'Type of pet: {pet} Name of pet: {name}')
+for pet, name in person["pets"].items():
+    print(f"Type of pet: {pet} Name of pet: {name}")
