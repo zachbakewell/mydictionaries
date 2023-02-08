@@ -42,7 +42,7 @@ earthquakes = json.load(infile)
 
 
 #Number of Earthquakes for 1
-print(f'Number of earthqaukes: ', len(earthquakes["features"]))
+print('Number of earthqaukes: ', len(earthquakes["features"]))
 print()
 print()
 
