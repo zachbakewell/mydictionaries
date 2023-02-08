@@ -35,3 +35,20 @@ Latitude: 14.7628
 
 
 import json
+
+infile = open("eq_data.json", "r")
+
+earthquakes = json.load(infile)
+
+print(len(earthquakes["features"]))
+
+eqdict = {}
+
+for row in earthquakes["features"]:
+    if row["properties"]["mag"] > 6:
+        location = row["properties"]["place"]
+        magnitude = row["properties"]["mag"]
+        longitude = row["geometry"]["coordinates"][0]
+        latitude = row["geometry"]["coordinates"][1]
+        print(location, magnitude, longitude, latitude)
+        eqdict["earthquake"]["location"] = location
