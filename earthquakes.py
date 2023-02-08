@@ -40,9 +40,11 @@ infile = open("eq_data.json", "r")
 
 earthquakes = json.load(infile)
 
-print(len(earthquakes["features"]))
+print(f'Number of earthqaukes: ', len(earthquakes["features"]))
+print()
+print()
 
-eqdict = {}
+eqdict = {"earthquake":[]}
 
 for row in earthquakes["features"]:
     if row["properties"]["mag"] > 6:
@@ -50,5 +52,17 @@ for row in earthquakes["features"]:
         magnitude = row["properties"]["mag"]
         longitude = row["geometry"]["coordinates"][0]
         latitude = row["geometry"]["coordinates"][1]
-        print(location, magnitude, longitude, latitude)
-        eqdict["earthquake"]["location"] = location
+        #print(location, magnitude, latitude, longitude)
+        earthquake = {"location":location, "magnitude":magnitude, "longitude":longitude, "latitude":latitude}
+        #eqdict.update(earthquake)
+        eqdict["earthquake"].append(earthquake)
+print(eqdict)
+
+
+for row in eqdict["earthquake"]:
+    print("Location:", row['location'])
+    print("Magnitude:", row['magnitude'])
+    print("Longitude:",row['longitude'])
+    print("Latitude:", row['latitude'])
+    print()
+    print()
