@@ -40,10 +40,13 @@ infile = open("eq_data.json", "r")
 
 earthquakes = json.load(infile)
 
+
+#Number of Earthquakes for 1
 print(f'Number of earthqaukes: ', len(earthquakes["features"]))
 print()
 print()
 
+#Dictionary print for 2
 eqdict = {"earthquake":[]}
 
 for row in earthquakes["features"]:
@@ -57,8 +60,10 @@ for row in earthquakes["features"]:
         #eqdict.update(earthquake)
         eqdict["earthquake"].append(earthquake)
 print(eqdict)
+print()
+print()
 
-
+#Answer for 3
 for row in eqdict["earthquake"]:
     print("Location:", row['location'])
     print("Magnitude:", row['magnitude'])
